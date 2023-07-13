@@ -94,16 +94,28 @@ submit.addEventListener("click", (checkValidity) => {
   }
 
   // On vérifie si un élément des input radio est checked
-  const locations = document.querySelector("input[name='location']").checked
+  // const locations = document.querySelector("input[type=radio][name=location]:checked").value
   const locationErrorMessage = document.querySelector('.Radio')
+  const locations = document.getElementsByName("location")
 
+  let loca = false
+  for (let location of locations) {
+    if (location.checked) {
+      locationErrorMessage.style.display = "none"
+      loca = true
+      break
+    }
+    else {
+      locationErrorMessage.style.display = "block"
+    }
+  }
   //Si ce n'est pas le cas on affiche le message d'erreur
-  if (locations === false) {
-    locationErrorMessage.style.display = "block"
-  }
-  else {
-    locationErrorMessage.style.display = "none"
-  }
+  // if (locations === true) {
+  //   locationErrorMessage.style.display = "none"
+  // }
+  // else {
+  //   locationErrorMessage.style.display = "block"
+  // }
 
   //On sélectionne la checkbox des conditions d'utilisations.
   const terms = document.querySelector("#checkbox1")
@@ -121,7 +133,7 @@ submit.addEventListener("click", (checkValidity) => {
   //Ainsi que ceux qui vont apparaitre
   const confirm = document.querySelector(".modal-confirm")
 
-  if (validFirst == true && validLast == true && mail == true && birthdateValidity.toString() != "Invalid Date" && isNaN(quantityValidity) === false && locations === true && terms.checked === true) {
+  if (validFirst == true && validLast == true && mail == true && birthdateValidity.toString() != "Invalid Date" && isNaN(quantityValidity) === false && loca === true && terms.checked === true) {
     confirm.style.display = "grid"
     modal.style.display = "none"
     contenu.style = "height: 85%;"
