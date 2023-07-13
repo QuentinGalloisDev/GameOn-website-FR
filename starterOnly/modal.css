@@ -204,6 +204,22 @@ main {
   margin: 15px auto;
 }
 
+.modal-confirm {
+  display: none;
+  height: 100%;
+  grid-template-rows: repeat(12, 1fr);
+}
+
+.modal-confirm h2 {
+  grid-row: 6/8;
+  text-align: center;
+}
+
+.modal-confirm input {
+  grid-row: 12/12;
+  margin-bottom: 12px
+}
+
 label {
   font-family: var(--font-default);
   font-size: 17px;
@@ -365,7 +381,8 @@ input[data-error]::after {
 }
 
 .btn-submit,
-.btn-signup {
+.btn-signup,
+.close-confirm {
   background: #fe142f;
   display: block;
   margin: 0 auto;
@@ -376,6 +393,7 @@ input[data-error]::after {
   cursor: pointer;
   border: 0;
 }
+
 
 /* custom select styles */
 .custom-select {
@@ -463,7 +481,7 @@ input[data-error]::after {
 
 .hero-content {
   padding: 51px 67px;
-  grid-column: span 4;
+  grid-column: span 5;
   background: #232323;
   color: #fff;
   position: relative;
@@ -481,6 +499,7 @@ input[data-error]::after {
   top: 0;
 }
 
+/* Sélectionne tout les éléments enfants */
 .hero-content>* {
   position: relative;
   z-index: 1;
@@ -489,7 +508,8 @@ input[data-error]::after {
 .hero-headline {
   font-size: 6rem;
   font-weight: normal;
-  white-space: nowrap;
+  /* white-space: nowrap; */
+  width: 240%;
 }
 
 .hero-text {
@@ -509,7 +529,7 @@ input[data-error]::after {
 }
 
 .hero-img {
-  grid-column: span 8;
+  grid-column: span 7;
 }
 
 .hero-img img {
@@ -560,6 +580,7 @@ footer {
   .hero-headline {
     font-size: 4.5rem;
     white-space: normal;
+    width: 100%;
   }
 
   .hero-text {
