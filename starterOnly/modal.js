@@ -93,29 +93,24 @@ submit.addEventListener("click", (checkValidity) => {
     quantityError.style.display = "none"
   }
 
-  // On vérifie si un élément des input radio est checked
-  // const locations = document.querySelector("input[type=radio][name=location]:checked").value
-  const locationErrorMessage = document.querySelector('.Radio')
+  // On selectionne les bouttons radio
   const locations = document.getElementsByName("location")
-
+  const locationErrorMessage = document.querySelector('.Radio')
+  // On initialise la variable loca à false
   let loca = false
+  // On parcours le groupe de boutons radio
   for (let location of locations) {
+    // Si un boutton est coché on fait disparaître le message d'erreur et on met la variable loca à true pour le test finale du formulaire.
     if (location.checked) {
       locationErrorMessage.style.display = "none"
       loca = true
       break
     }
+    //Si ce n'est pas le cas on affiche le message d'erreur
     else {
       locationErrorMessage.style.display = "block"
     }
   }
-  //Si ce n'est pas le cas on affiche le message d'erreur
-  // if (locations === true) {
-  //   locationErrorMessage.style.display = "none"
-  // }
-  // else {
-  //   locationErrorMessage.style.display = "block"
-  // }
 
   //On sélectionne la checkbox des conditions d'utilisations.
   const terms = document.querySelector("#checkbox1")
